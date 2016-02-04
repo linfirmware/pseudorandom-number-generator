@@ -6,7 +6,15 @@ angular.module('starter.controllers', [])
   // To listen for when this page is active (for example, to refresh data),
   // listen for the $ionicView.enter event:
 
-  $scope.slider = {
+  $scope.count = {
+  value: 150,
+  options: {
+    floor: 0,
+    ceil: 450
+  }
+};
+
+  $scope.range = {
     min: 100,
     max: 180,
     options: {

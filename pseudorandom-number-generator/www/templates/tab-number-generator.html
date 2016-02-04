@@ -3,9 +3,20 @@
     <div class="list card" >
       <div class="item item-body">
         <rzslider
-          rz-slider-model="slider.min"
-          rz-slider-high="slider.max"
-          rz-slider-options="slider.options"></rzslider>
+         rz-slider-model="count.value"
+         rz-slider-options="count.options"></rzslider>
+        <rzslider
+          rz-slider-model="range.min"
+          rz-slider-high="range.max"
+          rz-slider-options="range.options"></rzslider>
+          <label class="item-input item-select">
+    <div class="input-label">Algorithm</div>
+    <select>
+      <option ng-selected="true">Linear Congruential Generator</option>
+      <option>Mersenne Twister</option>
+    </select>
+  </label>
+        <button ng-click="generate()" class="button button-positive">Generate</button>
       </div>
     </div>
     <div class="list card" ng-repeat="numberSequence in generatedNumbers" >
