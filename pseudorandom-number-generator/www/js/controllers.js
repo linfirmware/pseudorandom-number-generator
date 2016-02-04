@@ -27,6 +27,10 @@ angular.module('starter.controllers', [])
     $scope.generatedNumbers = GeneratedNumbers.all();
   });
 
+  $scope.generate = function() {
+    GeneratedNumbers.add();
+  };
+
   $scope.remove = function(numberSequence) {
     GeneratedNumbers.remove(numberSequence);
   };
