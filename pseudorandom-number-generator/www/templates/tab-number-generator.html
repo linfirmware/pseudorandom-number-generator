@@ -2,7 +2,10 @@
   <ion-content>
     <div class="list card" >
       <div class="item item-body">
-        
+        <rzslider
+          rz-slider-model="slider.min"
+          rz-slider-high="slider.max"
+          rz-slider-options="slider.options"></rzslider>
       </div>
     </div>
     <div class="list card" ng-repeat="numberSequence in generatedNumbers" >
