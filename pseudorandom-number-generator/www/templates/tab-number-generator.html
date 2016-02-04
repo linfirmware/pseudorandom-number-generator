@@ -1,20 +1,34 @@
 <ion-view view-title="Number Generator">
   <ion-content>
-    <div class="list card" ng-repeat="chat in chats" >
-      <div class="item item-avatar">
-        <img ng-src="{{chat.face}}">
-        <h2>{{chat.name}}</h2>
-        <p>{{chat.lastText}}</p>
+    <div class="list card" >
+      <div class="item item-body">
+        <rzslider
+         rz-slider-model="count.value"
+         rz-slider-options="count.options"></rzslider>
+        <rzslider
+          rz-slider-model="range.min"
+          rz-slider-high="range.max"
+          rz-slider-options="range.options"></rzslider>
+          <label class="item-input item-select">
+    <div class="input-label">Algorithm</div>
+    <select>
+      <option ng-selected="true">Linear Congruential Generator</option>
+      <option>Mersenne Twister</option>
+    </select>
+  </label>
+        <button ng-click="generate()" class="button button-positive">Generate</button>
+      </div>
+    </div>
+    <div class="list card" ng-repeat="numberSequence in generatedNumbers" >
+      <div class="item item-body">
+        <p>{{numberSequence.id}}</p>
+        <p>{{numberSequence.lowRange}}</p>
+        <p>{{numberSequence.highRange}}</p>
+        <p>{{numberSequence.count}}</p>
+        <p>{{numberSequence.algorithm}}</p>
       </div>
       <div class="item item-body">
-        <img class="full-image" ng-src="{{chat.face}}">
-        <p>This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
-        the content is from a card-body consisting of an image and paragraph text. The footer
-        consists of tabs, icons aligned left, within the card-footer.</p>
-        <p>
-        <a href="#" class="subdued">1 Like</a>
-        <a href="#" class="subdued">5 Comments</a>
-        </p>
+        <p>2, 4, 12, 1, 2, 4, 12, 1, 2, 4, 12, 1, 2, 4, 12, 1, 2, 4, 12, 1, 2, 4, 12, 1, 2, 4, 12, 1, 2, 4, 12, 1, 2, 4, 12, 1, 2, 4, 12, 1, 2, 4</p>
       </div>
     </div>
   </ion-content>
