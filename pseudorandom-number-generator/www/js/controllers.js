@@ -17,6 +17,14 @@ angular.module('starter.controllers', [])
 
 .controller('SettingsAboutCtrl', function($scope) {
   $scope.settings = {
-    enableFriends: true
+    historyCount: 20
+  };
+
+  $scope.removeAds = function() {
+    
+  };
+
+  $scope.clearHistory = function() {
+    
   };
 });

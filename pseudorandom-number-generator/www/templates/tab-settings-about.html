@@ -1,9 +1,27 @@
 <ion-view hide-nav-bar="true" view-title="Settings/About">
-  <ion-content>
-    <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
-    </ion-toggle>
-    </ion-list>
+  <ion-content class="padding">
+	<div>
+		<h3>Application Information</h3>
+		<p>Pseudo aims to provide the most flexible and intuitive pseudorandom number generator on the app store. You can choose the range of random numbers you want, how many numbers you want generated, and the algorithm used to generate those numbers. A history is kept of past number sequences you generated, which can be modified or cleared.</p>
+		<h3>Remove Advertisements</h3>
+		<p>Advertisements are intermixed with your number sequence results. These are to provide financial support for the developers, Lin Firmware. If you would prefer not to see the ads, you can pay for a one time in app purchase of $0.99 USD to remove the ads.</p>
+		<button ng-click="removeAds()" class="button button-block button-positive">Remove Advertisements</button>
+	</div>
+	<div>
+		<h3>Settings</h3>
+		<p>Set how many generated number/number sequences you want to retain in history.</p>
+	<label class="item-input item-select">
+		<div class="input-label">History Count</div>
+		<select ng-model="settings.historyCount">
+			<option>5</option>
+			<option>10</option>
+			<option ng-selected="true">20</option>
+			<option>30</option>
+			<option>40</option>
+		</select>
+	</label>
+	<button ng-click="clearHistory()" class="button button-block button-positive">Clear History</button>
+	</div>
   </ion-content>
 </ion-view>
+
