@@ -36,16 +36,16 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('SettingsAboutCtrl', function($scope) {
+.controller('SettingsAboutCtrl', function($scope, GeneratedNumbers) {
   $scope.settings = {
     historyCount: 20
   };
 
   $scope.removeAds = function() {
-    
+    alert('remove ads');
   };
 
   $scope.clearHistory = function() {
-    
+    GeneratedNumbers.removeAll();
   };
 });
