@@ -63,7 +63,7 @@ rzslider .rz-bar {
 
 rzslider .rz-bar.rz-selection {
   z-index: 2;
-  background: #0db9f0;
+  background: #387ef5;
   -webkit-border-radius: 2px;
      -moz-border-radius: 2px;
           border-radius: 2px;
@@ -75,7 +75,7 @@ rzslider .rz-pointer {
   width: 32px;
   height: 32px;
   cursor: pointer;
-  background-color: #0db9f0;
+  background-color: #387ef5;
   -webkit-border-radius: 16px;
      -moz-border-radius: 16px;
           border-radius: 16px;
@@ -103,7 +103,7 @@ rzslider .rz-pointer.rz-active {
 }
 
 rzslider .rz-pointer.rz-active:after {
-  background-color: #451aff;
+  /*background-color: #451aff;*/
 }
 
 rzslider .rz-bubble {

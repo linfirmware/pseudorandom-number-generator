@@ -1,5 +1,12 @@
 angular.module('starter.services', [])
 
+.factory('Settings', function() {
+ 
+  settings = {};
+  settings.historyCount = 20;
+  return settings;
+})
+
 .factory('GeneratedNumbers', function() {
   // Might use a resource here that returns a JSON array
 
@@ -10,13 +17,34 @@ angular.module('starter.services', [])
     all: function() {
       return generatedNumbers;
     },
-    add: function() {
-      generatedNumbers.push({
-        id: 0,
-        lowRange: 0, //inclusive
-        highRange: 100, //inclusive
-        count: 3,
-        algorithm: 'linear congruential generator'
+    add: function(low, high, number, algo) {
+      var a = 214013;
+      var c = 2531011;
+      var m = 2147483648;
+      var x = new Date().getTime(); //seed with time (potential issue here)
+
+      var data = []; //generate random numbers here
+
+      for(var i = 0; i < number; i++)
+      {
+        x = (a * x + c) % m;
+        var next = x >> 16;
+
+        //put number into acceptable range
+        next /= 32767;
+        next *= (high - low);
+        next = Math.round(next);
+        next += low;
+
+        data.push(next);
+      }
+
+      generatedNumbers.unshift({
+        lowRange: low, //inclusive
+        highRange: high, //inclusive
+        count: number,
+        algorithm: algo,
+        data: data.join(", ")
       });
     },
     remove: function(numberSequence) {
@@ -24,6 +52,9 @@ angular.module('starter.services', [])
     },
     removeAll: function() {
       generatedNumbers = [];
+    },
+    size: function() {
+      return generatedNumbers.length;
     }
   };
 });

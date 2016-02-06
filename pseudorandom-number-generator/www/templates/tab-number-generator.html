@@ -2,34 +2,34 @@
   <ion-content>
     <div class="list card" >
       <div class="item item-body">
+        <p class="generate-title">Quantity</p>
         <rzslider
          rz-slider-model="count.value"
          rz-slider-options="count.options"></rzslider>
+        <p class="generate-title">Range/Span (Inclusive)</p>
         <rzslider
           rz-slider-model="range.min"
           rz-slider-high="range.max"
           rz-slider-options="range.options"></rzslider>
-          <label class="item-input item-select">
-    <div class="input-label">Algorithm</div>
-    <select>
-      <option ng-selected="true">Linear Congruential Generator</option>
-      <option>Mersenne Twister</option>
+
+    <p class="generate-title">Algorithm</p>
+    <label class="item item-input item-select">
+    <div class="input-label">
+        &nbsp;
+    </div>
+    <select ng-model="generator.algorithm">
+        <option ng-selected="true">Linear Congruential Generator (Microsoft)</option>
+        <option>Linear Congruential Generator (BSD)</option>
+        <option>Mersenne Twister</option>
     </select>
-  </label>
+</label>
         <button ng-click="generate()" class="button button-positive">Generate</button>
       </div>
     </div>
-    <div class="list card" ng-repeat="numberSequence in generatedNumbers" >
-      <div class="item item-body">
-        <p>{{numberSequence.id}}</p>
-        <p>{{numberSequence.lowRange}}</p>
-        <p>{{numberSequence.highRange}}</p>
-        <p>{{numberSequence.count}}</p>
-        <p>{{numberSequence.algorithm}}</p>
-      </div>
-      <div class="item item-body">
-        <p>2, 4, 12, 1, 2, 4, 12, 1, 2, 4, 12, 1, 2, 4, 12, 1, 2, 4, 12, 1, 2, 4, 12, 1, 2, 4, 12, 1, 2, 4, 12, 1, 2, 4, 12, 1, 2, 4, 12, 1, 2, 4</p>
-      </div>
+    <div class="list card padding" ng-repeat="numberSequence in generatedNumbers" >
+      <p class="generate-title">Range: {{numberSequence.lowRange}} - {{numberSequence.highRange}}, Quantity: {{numberSequence.count}}, Algorithm: {{numberSequence.algorithm}}</p>
+      <p>{{numberSequence.data}}</p>
     </div>
+    <div class="clear marginBottom"></div>
   </ion-content>
 </ion-view>
