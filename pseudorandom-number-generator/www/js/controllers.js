@@ -1,10 +1,12 @@
 angular.module('starter.controllers', [])
 
-.controller('NumberGeneratorCtrl', function($scope, $ionicScrollDelegate, GeneratedNumbers) {
+.controller('NumberGeneratorCtrl', function($scope, $ionicScrollDelegate, GeneratedNumbers, Settings) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
   // listen for the $ionicView.enter event:
+
+  $scope.settings = Settings;
 
   $scope.generator = {
     algorithm: "Linear Congruential Generator (Microsoft)"
@@ -32,7 +34,8 @@ angular.module('starter.controllers', [])
   });
 
   $scope.generate = function() {
-    var n = 20;
+    var n = $scope.settings.historyCount;
+    
     if(GeneratedNumbers.size() == n)
     {
       GeneratedNumbers.remove(n-1); //remove extra history entry to make room for next item if at limit
@@ -48,10 +51,8 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('SettingsAboutCtrl', function($scope, $ionicScrollDelegate, GeneratedNumbers) {
-  $scope.settings = {
-    historyCount: 20
-  };
+.controller('SettingsAboutCtrl', function($scope, $ionicScrollDelegate, GeneratedNumbers, Settings) {
+  $scope.settings = Settings;
 
   $scope.removeAds = function() {
     

@@ -1,5 +1,12 @@
 angular.module('starter.services', [])
 
+.factory('Settings', function() {
+ 
+  settings = {};
+  settings.historyCount = 20;
+  return settings;
+})
+
 .factory('GeneratedNumbers', function() {
   // Might use a resource here that returns a JSON array
 
@@ -14,7 +21,7 @@ angular.module('starter.services', [])
       var a = 214013;
       var c = 2531011;
       var m = 2147483648;
-      var x = new Date().getTime(); //seed with time
+      var x = new Date().getTime(); //seed with time (potential issue here)
 
       var data = []; //generate random numbers here
 
