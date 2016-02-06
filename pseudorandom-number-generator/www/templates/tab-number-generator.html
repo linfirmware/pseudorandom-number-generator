@@ -26,17 +26,9 @@
         <button ng-click="generate()" class="button button-positive">Generate</button>
       </div>
     </div>
-    <div class="list card" ng-repeat="numberSequence in generatedNumbers" >
-      <div class="item item-body">
-        <p>{{numberSequence.id}}</p>
-        <p>{{numberSequence.lowRange}}</p>
-        <p>{{numberSequence.highRange}}</p>
-        <p>{{numberSequence.count}}</p>
-        <p>{{numberSequence.algorithm}}</p>
-      </div>
-      <div class="item item-body">
-        <p>2, 4, 12, 1, 2, 4, 12, 1, 2, 4, 12, 1, 2, 4, 12, 1, 2, 4, 12, 1, 2, 4, 12, 1, 2, 4, 12, 1, 2, 4, 12, 1, 2, 4, 12, 1, 2, 4, 12, 1, 2, 4</p>
-      </div>
+    <div class="list card padding" ng-repeat="numberSequence in generatedNumbers" >
+      <p class="generate-title">{{numberSequence.id}} - {{numberSequence.lowRange}} - {{numberSequence.highRange}} - {{numberSequence.count}} - {{numberSequence.algorithm}}</p>
+      <p>1,123,45,12,4,3,2,2,5,563945,55,9395,345,12,123,555,2,23,4,5,34,5,34,5,3,453,45,255,34,53,0,54345</p>
     </div>
   </ion-content>
 </ion-view>

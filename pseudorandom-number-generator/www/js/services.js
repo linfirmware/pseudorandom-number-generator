@@ -11,8 +11,10 @@ angular.module('starter.services', [])
       return generatedNumbers;
     },
     add: function() {
+      var next = generatedNumbers.length;
+
       generatedNumbers.unshift({
-        id: 0,
+        id: next,
         lowRange: 0, //inclusive
         highRange: 100, //inclusive
         count: 3,
