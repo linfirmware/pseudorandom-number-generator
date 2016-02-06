@@ -26,7 +26,7 @@ angular.module('starter.services', [])
         //put number into acceptable range
         next /= 32767;
         next *= (high - low);
-        next = parseInt(next, 10);
+        next = Math.round(next);
         next += low;
 
         data.push(next);
