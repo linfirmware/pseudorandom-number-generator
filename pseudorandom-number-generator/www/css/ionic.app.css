@@ -9730,3 +9730,39 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+.item-select {
+  width: 100%;
+  /* Or whatever you'd like the width to be */ }
+
+.item-select select {
+  left: 0;
+  max-width: 100%;
+  direction: ltr;
+  padding: 0; }
+
+.item-input {
+  padding: 0; }
+
+div#_label-0.input-label {
+  padding: 0; }
+
+label.item.item-input.item-select:after {
+  right: 0; }
+
+.item {
+  border-width: 0; }
+
+.button {
+  margin-top: 15px;
+  float: right; }
+
+p.generate-title {
+  padding: 0;
+  margin: 0;
+  color: #aaa;
+  font-weight: 100; }
+
+rzslider {
+  margin-bottom: 30px;
+  /*baseline 15*/ }

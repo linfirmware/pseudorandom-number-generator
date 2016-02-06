@@ -7,19 +7,19 @@ angular.module('starter.controllers', [])
   // listen for the $ionicView.enter event:
 
   $scope.count = {
-  value: 150,
-  options: {
-    floor: 0,
-    ceil: 450
-  }
-};
+    value: 10,
+    options: {
+      floor: 1,
+      ceil: 100
+    }
+  };
 
   $scope.range = {
-    min: 100,
-    max: 180,
+    min: 0,
+    max: 255,
     options: {
-      floor: 0,
-      ceil: 450
+      floor: -500,
+      ceil: 500
     }
   };
 
