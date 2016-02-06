@@ -24,7 +24,7 @@ angular.module('starter.services', [])
         var m = 2147483648;
         var x = seed; //seed with time
 
-        for(var i = 0; i < number; i++)
+        for(var i = 0; i < number + 5; i++)
         {
           x = (a * x + c) % m;
           var next = x >> 16;
@@ -35,7 +35,7 @@ angular.module('starter.services', [])
           next = Math.round(next);
           next += low;
 
-          data.push(next);
+          if(i > 4) data.push(next);
         }
         break;
       case "This Device (Javascipt Engine)":
