@@ -68,6 +68,14 @@ rzslider {
 	clear: both;
 }
 
-.marginBottom {
+.platform-ios .marginBottom {
+  padding: 0;
+}
+
+.platform-browser .marginBottom {
+  padding: 0;
+}
+
+.platform-android .marginBottom {
 	padding: 0 0 5px 0;
 }
