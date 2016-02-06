@@ -21,7 +21,7 @@ angular.module('starter.services', [])
       var a = 214013;
       var c = 2531011;
       var m = 2147483648;
-      var x = new Date().getTime(); //seed with time (potential issue here)
+      var x = new Date().getMilliseconds(); //seed with time
 
       var data = []; //generate random numbers here
 
