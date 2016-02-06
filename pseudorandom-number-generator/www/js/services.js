@@ -11,10 +11,7 @@ angular.module('starter.services', [])
       return generatedNumbers;
     },
     add: function(low, high, number, algo) {
-      var next = generatedNumbers.length;
-
       generatedNumbers.unshift({
-        id: next,
         lowRange: low, //inclusive
         highRange: high, //inclusive
         count: number,
@@ -26,6 +23,9 @@ angular.module('starter.services', [])
     },
     removeAll: function() {
       generatedNumbers = [];
+    },
+    size: function() {
+      return generatedNumbers.length;
     }
   };
 });
