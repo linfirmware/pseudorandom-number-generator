@@ -11,7 +11,7 @@ angular.module('starter.services', [])
       return generatedNumbers;
     },
     add: function() {
-      generatedNumbers.push({
+      generatedNumbers.unshift({
         id: 0,
         lowRange: 0, //inclusive
         highRange: 100, //inclusive
