@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('NumberGeneratorCtrl', function($scope, GeneratedNumbers) {
+.controller('NumberGeneratorCtrl', function($scope, $ionicScrollDelegate, GeneratedNumbers) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -29,14 +29,16 @@ angular.module('starter.controllers', [])
 
   $scope.generate = function() {
     GeneratedNumbers.add();
+    $ionicScrollDelegate.resize();
   };
 
   $scope.remove = function(numberSequence) {
     GeneratedNumbers.remove(numberSequence);
+    $ionicScrollDelegate.resize();
   };
 })
 
-.controller('SettingsAboutCtrl', function($scope, GeneratedNumbers) {
+.controller('SettingsAboutCtrl', function($scope, $ionicScrollDelegate, GeneratedNumbers) {
   $scope.settings = {
     historyCount: 20
   };
@@ -47,5 +49,6 @@ angular.module('starter.controllers', [])
 
   $scope.clearHistory = function() {
     GeneratedNumbers.removeAll();
+    $ionicScrollDelegate.resize();
   };
 });
