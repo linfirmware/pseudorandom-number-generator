@@ -10,15 +10,15 @@ angular.module('starter.services', [])
     all: function() {
       return generatedNumbers;
     },
-    add: function() {
+    add: function(low, high, number, algo) {
       var next = generatedNumbers.length;
 
       generatedNumbers.unshift({
         id: next,
-        lowRange: 0, //inclusive
-        highRange: 100, //inclusive
-        count: 3,
-        algorithm: 'linear congruential generator'
+        lowRange: low, //inclusive
+        highRange: high, //inclusive
+        count: number,
+        algorithm: algo
       });
     },
     remove: function(numberSequence) {

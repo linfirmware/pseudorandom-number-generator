@@ -6,6 +6,10 @@ angular.module('starter.controllers', [])
   // To listen for when this page is active (for example, to refresh data),
   // listen for the $ionicView.enter event:
 
+  $scope.generator = {
+    algorithm: "Linear Congruential Generator (Microsoft)"
+  };
+
   $scope.count = {
     value: 10,
     options: {
@@ -18,8 +22,8 @@ angular.module('starter.controllers', [])
     min: 0,
     max: 255,
     options: {
-      floor: -500,
-      ceil: 500
+      floor: 0,
+      ceil: 300
     }
   };
 
@@ -28,7 +32,7 @@ angular.module('starter.controllers', [])
   });
 
   $scope.generate = function() {
-    GeneratedNumbers.add();
+    GeneratedNumbers.add($scope.range.min, $scope.range.max, $scope.count.value, $scope.generator.algorithm);
     $ionicScrollDelegate.resize();
   };
 

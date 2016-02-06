@@ -17,8 +17,8 @@
     <div class="input-label">
         &nbsp;
     </div>
-    <select>
-        <option selected>Linear Congruential Generator (Microsoft)</option>
+    <select ng-model="generator.algorithm">
+        <option ng-selected="true">Linear Congruential Generator (Microsoft)</option>
         <option>Linear Congruential Generator (BSD)</option>
         <option>Mersenne Twister</option>
     </select>
