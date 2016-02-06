@@ -37,10 +37,9 @@ angular.module('starter.controllers', [])
     {
       GeneratedNumbers.remove(n-1); //remove extra history entry to make room for next item if at limit
     }
-    
+
     GeneratedNumbers.add($scope.range.min, $scope.range.max, $scope.count.value, $scope.generator.algorithm);
     $ionicScrollDelegate.resize();
-    alert($scope.settings.historyCount);
   };
 
   $scope.remove = function(numberSequence) {

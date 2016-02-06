@@ -11,11 +11,14 @@ angular.module('starter.services', [])
       return generatedNumbers;
     },
     add: function(low, high, number, algo) {
+      var data = [4,7,1,12234,2,3,45,2,3,34353,45,345,44]; //generate random numbers here
+
       generatedNumbers.unshift({
         lowRange: low, //inclusive
         highRange: high, //inclusive
         count: number,
-        algorithm: algo
+        algorithm: algo,
+        data: data.join(", ")
       });
     },
     remove: function(numberSequence) {
