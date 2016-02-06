@@ -54,7 +54,7 @@ angular.module('starter.controllers', [])
   };
 
   $scope.removeAds = function() {
-    alert('remove ads');
+    
   };
 
   $scope.clearHistory = function() {
