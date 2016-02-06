@@ -38,6 +38,13 @@ angular.module('starter.services', [])
           data.push(next);
         }
         break;
+      case "This Device (Javascipt Engine)":
+
+        for(var i = 0; i < number; i++)
+        {
+          data.push(Math.floor((Math.random() * (high - low + 1))) + low);
+        }
+        break;
       default:
         break;
     }
@@ -50,13 +57,21 @@ angular.module('starter.services', [])
       return generatedNumbers;
     },
     add: function(low, high, number, algo) {
-      var seedRaw = new Date().getMilliseconds();
+      var date = new Date();
+      var seedRaw = date.getMilliseconds();
       var data = pseudoRandomNumberGenerator(seedRaw, low, high, number, algo); //generate random numbers here
 
+      var hours = date.getHours();
+      var meridian = (hours >= 12) ? "PM" : "AM";
+      if(hours > 12) hours -= 12;
+      else if(hours == 0) hours = 12;
+
+      var seedText = (algo == "Linear Congruential Generator (MS)") ? seedRaw : "n/a";
+
       generatedNumbers.unshift({
-        date: new Date(),
-        time: new Date().getTime(),
-        seed: seedRaw,
+        date: (date.getMonth() + 1) + "/" + date.getDate() + "/" + (date.getFullYear() - 2000),
+        time: hours + ":" + ("00" + date.getMinutes()).slice(-2) + " " + meridian,
+        seed: seedText,
         lowRange: low, //inclusive
         highRange: high, //inclusive
         count: number,
