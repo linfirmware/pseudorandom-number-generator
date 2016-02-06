@@ -9,7 +9,7 @@ angular.module('starter.controllers', [])
   $scope.settings = Settings;
 
   $scope.generator = {
-    algorithm: "Linear Congruential Generator (Microsoft)"
+    algorithm: "Linear Congruential Generator (MS)"
   };
 
   $scope.count = {
