@@ -3,7 +3,7 @@ angular.module('starter.services', [])
 .factory('Settings', function() {
  
   settings = {};
-  settings.historyCount = 20;
+  settings.historyCount = "20";
   return settings;
 })
 
