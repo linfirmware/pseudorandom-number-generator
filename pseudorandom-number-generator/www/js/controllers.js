@@ -61,5 +61,15 @@ angular.module('starter.controllers', [])
   $scope.clearHistory = function() {
     GeneratedNumbers.removeAll();
     $ionicScrollDelegate.resize();
+    $ionicScrollDelegate.$getByHandle('mainScroll').scrollTop();
   };
+
+  $scope.historyCountChanged = function() {
+    while(GeneratedNumbers.size() > $scope.settings.historyCount)
+    {
+      GeneratedNumbers.remove(GeneratedNumbers.size() - 1); //remove extra history entry to make room for next item if at limit
+    }
+  };
+
+  
 });

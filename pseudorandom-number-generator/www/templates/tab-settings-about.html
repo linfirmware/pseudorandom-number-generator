@@ -13,7 +13,7 @@
 		<p>Set how many generated number/number sequences you want to retain in history.</p>
 	<label class="item-input item-select">
 		<div class="input-label">&nbsp;</div>
-		<select ng-model="settings.historyCount">
+		<select ng-model="settings.historyCount" ng-change="historyCountChanged()">
 			<option>5</option>
 			<option>10</option>
 			<option ng-selected="true">20</option>
