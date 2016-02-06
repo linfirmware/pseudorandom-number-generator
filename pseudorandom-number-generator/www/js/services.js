@@ -11,7 +11,25 @@ angular.module('starter.services', [])
       return generatedNumbers;
     },
     add: function(low, high, number, algo) {
-      var data = [4,7,1,12234,2,3,45,2,3,34353,45,345,44]; //generate random numbers here
+      var a = 214013;
+      var c = 2531011;
+      var m = 2147483648;
+      var x = new Date().getTime(); //seed with time
+
+      var data = []; //generate random numbers here
+
+      for(var i = 0; i < number; i++)
+      {
+        x = (a * x + c) % m;
+        var next = x >> 16;
+
+        //put number into acceptable range
+        next /= 32767;
+        next *= (high - low);
+        next += low;
+
+        data.push(next);
+      }
 
       generatedNumbers.unshift({
         lowRange: low, //inclusive
