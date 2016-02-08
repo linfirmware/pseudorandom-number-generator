@@ -1,50 +1,92 @@
 angular.module('starter.services', [])
 
-.factory('Chats', function() {
+.factory('Settings', function() {
+ 
+  settings = {};
+  settings.historyCount = "20";
+  return settings;
+})
+
+.factory('GeneratedNumbers', function() {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
-  var chats = [{
-    id: 0,
-    name: 'Ben Sparrow',
-    lastText: 'You on your way?',
-    face: 'img/ben.png'
-  }, {
-    id: 1,
-    name: 'Max Lynx',
-    lastText: 'Hey, it\'s me',
-    face: 'img/max.png'
-  }, {
-    id: 2,
-    name: 'Adam Bradleyson',
-    lastText: 'I should buy a boat',
-    face: 'img/adam.jpg'
-  }, {
-    id: 3,
-    name: 'Perry Governor',
-    lastText: 'Look at my mukluks!',
-    face: 'img/perry.png'
-  }, {
-    id: 4,
-    name: 'Mike Harrington',
-    lastText: 'This is wicked good ice cream.',
-    face: 'img/mike.png'
-  }];
+  var generatedNumbers = [];
+
+  function pseudoRandomNumberGenerator(seed, low, high, number, algo) {
+    var data = [];
+
+    switch(algo)
+    {
+      case "Linear Congruential Generator (MS)":
+        var a = 214013;
+        var c = 2531011;
+        var m = 2147483648;
+        var x = seed; //seed with time
+
+        for(var i = 0; i < number + 5; i++)
+        {
+          x = (a * x + c) % m;
+          var next = x >> 16;
+
+          //put number into acceptable range
+          next /= 32767;
+          next *= (high - low);
+          next = Math.round(next);
+          next += low;
+
+          if(i > 4) data.push(next);
+        }
+        break;
+      case "This Device (Javascipt Engine)":
+
+        for(var i = 0; i < number; i++)
+        {
+          data.push(Math.floor((Math.random() * (high - low + 1))) + low);
+        }
+        break;
+      default:
+        break;
+    }
+
+    return data;
+  }
 
   return {
     all: function() {
-      return chats;
+      return generatedNumbers;
     },
-    remove: function(chat) {
-      chats.splice(chats.indexOf(chat), 1);
+    add: function(low, high, number, algo) {
+      var date = new Date();
+      var seedRaw = date.getMilliseconds();
+      var data = pseudoRandomNumberGenerator(seedRaw, low, high, number, algo); //generate random numbers here
+
+      var hours = date.getHours();
+      var meridian = (hours >= 12) ? "PM" : "AM";
+      if(hours > 12) hours -= 12;
+      else if(hours == 0) hours = 12;
+
+      var seedText = (algo == "Linear Congruential Generator (MS)") ? seedRaw : "n/a";
+
+      generatedNumbers.unshift({
+        date: (date.getMonth() + 1) + "/" + date.getDate() + "/" + (date.getFullYear() - 2000),
+        time: hours + ":" + ("00" + date.getMinutes()).slice(-2) + " " + meridian,
+        seed: seedText,
+        lowRange: low, //inclusive
+        highRange: high, //inclusive
+        count: number,
+        algorithm: algo,
+        data: data.join(", ")
+      });
     },
-    get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
-        }
-      }
-      return null;
+    remove: function(numberSequence) {
+      generatedNumbers.splice(generatedNumbers.indexOf(numberSequence), 1);
+    },
+    removeAll: function() {
+      generatedNumbers = [];
+    },
+    size: function() {
+      return generatedNumbers.length;
     }
   };
 });
