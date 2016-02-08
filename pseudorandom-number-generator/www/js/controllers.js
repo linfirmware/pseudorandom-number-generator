@@ -43,6 +43,9 @@ angular.module('starter.controllers', [])
 
     GeneratedNumbers.add($scope.range.min, $scope.range.max, $scope.count.value, $scope.generator.algorithm);
     $ionicScrollDelegate.resize();
+
+    if(AdMob) AdMob.prepareInterstitial( {adId:admobid.interstitial, autoShow:true} );
+    //if(AdMob) AdMob.showInterstitial();
   };
 
   $scope.remove = function(numberSequence) {
